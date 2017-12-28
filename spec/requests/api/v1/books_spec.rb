@@ -18,6 +18,22 @@ RSpec.describe 'Book API', type: :request do
     end
   end
 
+  describe 'GET /books/search' do
+    before { get '/api/v1/books/search', params: { query: 'Lorem' } }
+    let!(:book) { create(:book, name: 'Lorem') }
+
+    it 'returns the books that match the search' do
+      get '/api/v1/books/search', params: { query: 'Lorem' }
+      expect(json).not_to be_empty
+      expect(json.size).to eq(1)
+    end
+
+    it 'returns status code 200' do
+      get '/api/v1/books/search', params: { query: 'Lorem' }
+      expect(response).to have_http_status(200)
+    end
+  end
+
   describe 'GET /books/:id' do
     before { get "/api/v1/books/#{book_id}" }
 

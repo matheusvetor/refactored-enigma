@@ -2,8 +2,15 @@ module Api
   module V1
     class BooksController < ApplicationController
       before_action :set_book, only: %i(show update destroy)
+
       def index
         @books = Book.all
+        render json: @books
+      end
+
+      def search
+        @books = Book.joins(:author)
+          .where("books.name ilike :q", q: "%#{params[:query]}%")
         render json: @books
       end
 
