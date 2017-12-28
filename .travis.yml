@@ -4,7 +4,7 @@ cache: bundler
 services:
   - postgresql
 rvm:
-  - 2.4.2
+  - 2.5.0
 script:
   - bundle exec rake
 before_install:
