@@ -1,7 +1,7 @@
 module Api
   module V1
     class BooksController < ApplicationController
-      before_action :set_book, only: %i(show edit update destroy)
+      before_action :set_book, only: %i(show update destroy)
       def index
         @books = Book.all
         render json: @books
