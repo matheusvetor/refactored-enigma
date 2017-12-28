@@ -1,14 +1,18 @@
 source 'https://rubygems.org'
 
+ruby '2.5.0'
+
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
 
-
 gem 'rails', '~> 5.1.4'
+
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
+
+gem 'active_model_serializers'
 
 group :development, :test do
   gem 'brakeman', require: false
