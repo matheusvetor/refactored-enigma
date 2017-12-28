@@ -8,6 +8,6 @@ RSpec.describe Author, type: :model do
   end
 
   context 'associations' do
-    it { is_expected.to have_many(:books) }
+    it { is_expected.to have_many(:books).dependent(:destroy) }
   end
 end

@@ -2,8 +2,8 @@ FactoryBot.define do
   factory :book do
     name          { Faker::Name.name }
     description   { Faker::Lorem.paragraph }
-    isbn          { Faker::Book.isbn }
-    published_at  { Faker::Date.between(1.year.ago, Date.today) }
+    isbn          { Faker::Code.isbn }
+    published_at  { Faker::Date.between(1.year.ago, Time.zone.today) }
     author
 
     trait :unpublished do
