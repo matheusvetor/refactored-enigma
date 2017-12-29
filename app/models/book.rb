@@ -1,6 +1,4 @@
 class Book < ApplicationRecord
-  attr_readonly :isbn
-
   belongs_to :author
 
   validates :author, presence: true
@@ -12,9 +10,9 @@ class Book < ApplicationRecord
 
   after_create :populate_isbn_async
 
-  def populate_isbn
-    return if isbn.present?
-    self[:isbn] = generate_isbn
+  def populate_isbn!
+    return true if isbn.present?
+    update_columns(isbn: generate_isbn)
   end
 
   private
