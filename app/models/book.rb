@@ -18,7 +18,7 @@ class Book < ApplicationRecord
   private
 
   def populate_isbn_async
-    GenerateIsbnWorker.perform_async(id)
+    GenerateIsbnWorker.perform_in(5.seconds, id)
   end
 
   def generate_isbn
