@@ -14,6 +14,8 @@ gem 'puma', '~> 3.7'
 
 gem 'active_model_serializers'
 
+gem 'sidekiq'
+
 group :development, :test do
   gem 'brakeman', require: false
   gem 'byebug', platforms: %i(mri mingw x64_mingw)
