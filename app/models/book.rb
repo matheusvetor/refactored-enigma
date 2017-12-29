@@ -3,6 +3,7 @@ class Book < ApplicationRecord
 
   validates :author, presence: true
   validates :name, presence: true
+  validates :isbn, uniqueness: { allow_nil: true, case_sensitive: false }
 
   scope :search, lambda { |q|
     joins(:author).where('books.name ilike :q', q: "%#{q}%")
