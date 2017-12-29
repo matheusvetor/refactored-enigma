@@ -13,7 +13,7 @@ class Book < ApplicationRecord
   after_create :populate_isbn_async
 
   def populate_isbn
-    return if isbn.blank?
+    return if isbn.present?
     self[:isbn] = generate_isbn
   end
 
