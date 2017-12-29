@@ -12,7 +12,7 @@ class Book < ApplicationRecord
 
   def populate_isbn!
     return true if isbn.present?
-    update_columns(isbn: generate_isbn)
+    update_attributes(isbn: generate_isbn)
   end
 
   private
