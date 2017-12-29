@@ -23,6 +23,8 @@ gem 'sidekiq'
 gem 'redis'
 gem 'redis-rails'
 
+gem 'coveralls', require: false
+
 group :development, :test do
   gem 'brakeman', require: false
   gem 'byebug', platforms: %i(mri mingw x64_mingw)
