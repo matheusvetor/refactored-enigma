@@ -93,7 +93,7 @@ RSpec.describe 'Book API', type: :request do
   describe 'PUT /api/v1/books/:id' do
     let(:valid_attributes) { attributes_for(:book) }
 
-    context 'when the record exists' do
+    context 'with valid attributes when the record exists' do
       before { put "/api/v1/books/#{book_id}", params: valid_attributes }
 
       it 'updates the record' do
@@ -102,6 +102,18 @@ RSpec.describe 'Book API', type: :request do
 
       it 'returns status code 204' do
         expect(response).to have_http_status(204)
+      end
+    end
+
+    context 'with invalid attributes when the record exists' do
+      before { put "/api/v1/books/#{book_id}", params: { name: nil } }
+
+      it 'updates the record' do
+        expect(response.body).to_not be_empty
+      end
+
+      it 'returns status code 422' do
+        expect(response).to have_http_status(422)
       end
     end
   end

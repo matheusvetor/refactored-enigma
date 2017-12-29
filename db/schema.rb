@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20171228120512) do
   create_table "books", force: :cascade do |t|
     t.string "name", default: "", null: false
     t.text "description", default: "", null: false
-    t.string "isbn", default: "", null: false
+    t.string "isbn"
     t.bigint "author_id"
     t.datetime "published_at"
     t.datetime "created_at", null: false
