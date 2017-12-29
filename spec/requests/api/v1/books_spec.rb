@@ -16,6 +16,19 @@ RSpec.describe 'Book API', type: :request do
     it 'returns status code 200' do
       expect(response).to have_http_status(200)
     end
+
+    describe 'with pagination' do
+      before { get '/api/v1/books', params: { per_page: 1 } }
+
+      it 'returns books' do
+        expect(json).not_to be_empty
+        expect(json.size).to eq(1)
+      end
+
+      it 'returns status code 200' do
+        expect(response).to have_http_status(200)
+      end
+    end
   end
 
   describe 'GET /books/search' do
