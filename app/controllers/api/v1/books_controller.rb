@@ -9,8 +9,7 @@ module Api
       end
 
       def search
-        @books = Book.joins(:author)
-          .where("books.name ilike :q", q: "%#{params[:query]}%")
+        @books = Book.search(params[:query])
         render json: @books
       end
 
