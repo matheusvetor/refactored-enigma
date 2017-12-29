@@ -11,6 +11,7 @@ Bundler.require(*Rails.groups)
 module RefactoredEnigma
   class Application < Rails::Application
     config.load_defaults 5.1
+    config.cache_store = :redis_store, "#{Rails.application.secrets.redis_url}/0/cache"
 
     config.api_only = true
 

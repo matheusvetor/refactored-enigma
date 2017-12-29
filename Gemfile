@@ -16,6 +16,9 @@ gem 'active_model_serializers'
 
 gem 'sidekiq'
 
+gem 'redis'
+gem 'redis-rails'
+
 group :development, :test do
   gem 'brakeman', require: false
   gem 'byebug', platforms: %i(mri mingw x64_mingw)
