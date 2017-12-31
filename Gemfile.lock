@@ -45,7 +45,6 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
-    api-pagination (4.6.3)
     arel (8.0.0)
     ast (2.3.0)
     axiom-types (0.1.1)
@@ -339,7 +338,6 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers
-  api-pagination
   brakeman
   byebug
   coveralls
