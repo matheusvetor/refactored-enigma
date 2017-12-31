@@ -6,6 +6,10 @@ FactoryBot.define do
     tag_list      { Faker::Lorem.words(5, true).join(', ') }
     author
 
+    after(:create) do |book, _evaluator|
+      book.reindex(refresh: true)
+    end
+
     trait :unpublished do
       published_at { Faker::Date.between(1.month.from_now, 1.year.from_now) }
     end

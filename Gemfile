@@ -23,6 +23,8 @@ gem 'sidekiq'
 gem 'redis'
 gem 'redis-rails'
 
+gem 'searchkick'
+
 gem 'coveralls', require: false
 
 group :development, :test do

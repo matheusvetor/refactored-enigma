@@ -81,6 +81,14 @@ GEM
     docile (1.1.5)
     domain_name (0.5.20170404)
       unf (>= 0.0.5, < 1.0.0)
+    elasticsearch (6.0.0)
+      elasticsearch-api (= 6.0.0)
+      elasticsearch-transport (= 6.0.0)
+    elasticsearch-api (6.0.0)
+      multi_json
+    elasticsearch-transport (6.0.0)
+      faraday
+      multi_json
     equalizer (0.0.11)
     erubi (1.7.0)
     erubis (2.7.0)
@@ -91,6 +99,8 @@ GEM
       railties (>= 3.0.0)
     faker (1.8.7)
       i18n (>= 0.7)
+    faraday (0.13.1)
+      multipart-post (>= 1.2, < 3)
     fasterer (0.3.2)
       colorize (~> 0.7)
       ruby_parser (~> 3.7)
@@ -122,6 +132,7 @@ GEM
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
     hashdiff (0.3.7)
+    hashie (3.5.7)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (0.9.1)
@@ -149,6 +160,7 @@ GEM
     mini_portile2 (2.3.0)
     minitest (5.10.3)
     multi_json (1.12.2)
+    multipart-post (2.0.0)
     nenv (0.3.0)
     netrc (0.11.0)
     nio4r (2.2.0)
@@ -274,6 +286,10 @@ GEM
       tty-which (~> 0.3.0)
       virtus (~> 1.0)
     safe_yaml (1.0.4)
+    searchkick (2.4.0)
+      activemodel (>= 4.1)
+      elasticsearch (>= 1)
+      hashie
     sexp_processor (4.10.0)
     shellany (0.0.1)
     shoulda-matchers (3.1.2)
@@ -350,6 +366,7 @@ DEPENDENCIES
   rspec-rails
   rubocop
   rubycritic
+  searchkick
   shoulda-matchers (~> 3.1)
   sidekiq
   simplecov

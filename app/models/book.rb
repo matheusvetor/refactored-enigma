@@ -1,4 +1,6 @@
 class Book < ApplicationRecord
+  searchkick default_fields: [:name, :isbn, :description]
+
   belongs_to :author
 
   has_many :taggings, dependent: :destroy
@@ -8,9 +10,7 @@ class Book < ApplicationRecord
   validates :name, presence: true
   validates :isbn, uniqueness: { allow_nil: true, case_sensitive: false }
 
-  scope :search, lambda { |q|
-    joins(:author).where('books.name ilike :q', q: "%#{q}%")
-  }
+  scope :search_import, -> { includes(:author, :tags) }
 
   after_create :populate_isbn_async
 
