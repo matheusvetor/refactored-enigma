@@ -1,7 +1,7 @@
 module Api
   module V1
     class AuthorsController < ApplicationController
-      before_action :set_author, only: %i(show update destroy)
+      before_action :set_author, only: %i(show)
 
       def index
         @authors = Author.paginate(page: params[:page], per_page: params[:per_page])
