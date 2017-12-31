@@ -4,13 +4,13 @@ module Api
       before_action :set_book, only: %i(show update destroy)
 
       def index
-        @books = paginate(Book.all)
+        @books = Book.paginate(page: params[:page], per_page: params[:per_page])
 
         render json: @books
       end
 
       def search
-        @books = paginate(Book.search(params[:query]))
+        @books = Book.search(params[:query], page: params[:page], per_page: params[:per_page])
 
         render json: @books
       end

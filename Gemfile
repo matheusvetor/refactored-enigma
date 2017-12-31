@@ -16,8 +16,6 @@ gem 'active_model_serializers'
 
 gem 'will_paginate'
 
-gem 'api-pagination'
-
 gem 'sidekiq'
 
 gem 'redis'
