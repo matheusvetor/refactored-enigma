@@ -1,5 +1,5 @@
 class Author < ApplicationRecord
-  searchkick default_fields: [:name]
+  searchkick default_fields: %i(name)
 
   has_many :books, dependent: :destroy
 

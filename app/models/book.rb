@@ -1,5 +1,5 @@
 class Book < ApplicationRecord
-  searchkick default_fields: [:name, :isbn, :description]
+  searchkick default_fields: %i(name isbn description)
 
   belongs_to :author
 
