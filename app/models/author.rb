@@ -8,6 +8,6 @@ class Author < ApplicationRecord
   after_commit :reindex_book
 
   def reindex_book
-    book.reindex
+    books.reindex
   end
 end
