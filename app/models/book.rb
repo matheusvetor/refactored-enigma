@@ -1,6 +1,9 @@
 class Book < ApplicationRecord
   belongs_to :author
 
+  has_many :taggings, dependent: :destroy
+  has_many :tags, through: :taggings
+
   validates :author, presence: true
   validates :name, presence: true
   validates :isbn, uniqueness: { allow_nil: true, case_sensitive: false }
@@ -10,6 +13,18 @@ class Book < ApplicationRecord
   }
 
   after_create :populate_isbn_async
+
+  def tag_list
+    tags.pluck(:name).join(', ')
+  end
+
+  def tag_list=(tag_list_string)
+    tag_list = tag_list_string.split(', ')
+
+    self.tags = tag_list.map do |tag_name|
+      Tag.find_or_create_by(name: tag_name)
+    end
+  end
 
   def populate_isbn!
     return true if isbn.present?

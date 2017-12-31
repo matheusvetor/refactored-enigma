@@ -3,6 +3,7 @@ FactoryBot.define do
     name          { Faker::Name.name }
     description   { Faker::Lorem.paragraph }
     published_at  { Faker::Date.between(1.year.ago, Time.zone.today) }
+    tag_list      { Faker::Lorem.words(5, true).join(', ') }
     author
 
     trait :unpublished do

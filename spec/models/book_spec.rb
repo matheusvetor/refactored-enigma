@@ -12,6 +12,8 @@ RSpec.describe Book, type: :model do
 
   context 'associations' do
     it { is_expected.to belong_to(:author) }
+    it { is_expected.to have_many(:taggings) }
+    it { is_expected.to have_many(:tags).through(:taggings) }
   end
 
   context 'isbn generation' do
@@ -22,8 +24,16 @@ RSpec.describe Book, type: :model do
 
       expect(generated_ibns).to_not include(isbn)
     end
+  end
 
-    it 'populate a book with a unique isbn' do
+  context 'tags population' do
+    let(:tag_list) { Faker::Lorem.words(5, true) }
+
+    it 'populates tags with a string list' do
+      book.tag_list = tag_list.join(', ')
+      book.save
+
+      expect(book.tags.pluck(:name)).to eq(tag_list)
     end
   end
 end

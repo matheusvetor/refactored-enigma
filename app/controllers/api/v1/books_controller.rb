@@ -51,7 +51,7 @@ module Api
       end
 
       def book_attributes
-        params.permit(:id, :name, :description, :author_id)
+        params.permit(:id, :name, :description, :author_id, :tag_list)
       end
     end
   end
