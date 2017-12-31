@@ -38,7 +38,6 @@ group :development, :test do
   gem 'rubocop', require: false
   gem 'rubycritic', require: false
   gem 'simplecov', require: false
-  gem 'webmock'
 end
 
 group :development do
