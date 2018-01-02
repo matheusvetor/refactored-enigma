@@ -19,9 +19,9 @@ class Book < ApplicationRecord
   end
 
   def tag_list=(tag_list_string)
-    tag_list = tag_list_string.split(', ')
+    list = tag_list_string.split(', ')
 
-    self.tags = tag_list.map do |tag_name|
+    self.tags = list.map do |tag_name|
       Tag.find_or_create_by(name: tag_name)
     end
   end
