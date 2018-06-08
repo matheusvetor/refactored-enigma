@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
 ruby '2.5.1'
@@ -9,8 +11,8 @@ end
 
 gem 'rails', '5.2.0'
 
-gem 'pg'
 gem 'passenger'
+gem 'pg'
 
 gem 'active_model_serializers'
 

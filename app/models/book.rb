@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Book < ApplicationRecord
   searchkick default_fields: %i(name isbn description)
 
@@ -28,7 +30,7 @@ class Book < ApplicationRecord
 
   def populate_isbn!
     return true if isbn.present?
-    update_attributes(isbn: generate_isbn)
+    update(isbn: generate_isbn)
   end
 
   private
