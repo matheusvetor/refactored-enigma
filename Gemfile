@@ -23,8 +23,6 @@ gem 'redis-rails'
 
 gem 'searchkick'
 
-gem 'coveralls', require: false
-
 gem 'faker'
 
 group :development, :test do
