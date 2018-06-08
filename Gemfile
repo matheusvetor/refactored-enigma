@@ -1,16 +1,16 @@
 source 'https://rubygems.org'
 
-ruby '2.5.0'
+ruby '2.5.1'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'rails', '~> 5.1.4'
+gem 'rails', '5.2.0'
 
-gem 'pg', '~> 0.18'
-gem 'puma', '~> 3.7'
+gem 'pg'
+gem 'passenger'
 
 gem 'active_model_serializers'
 
@@ -41,12 +41,12 @@ end
 
 group :development do
   gem 'guard-rspec', require: false
-  gem 'listen', '~> 3.1.5'
+  gem 'listen'
   gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'spring-watcher-listen'
 end
 
 group :test do
   gem 'database_cleaner'
-  gem 'shoulda-matchers', '~> 3.1'
+  gem 'shoulda-matchers'
 end
